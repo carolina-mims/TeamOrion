@@ -26,12 +26,6 @@ wire passed;
 buttonShaper passwdBS(passwd_start_Bin, passwd_start_Bout, clk, rst);  
 
 
-
-//INSERT two second timer 
-
-
-//INSERT ROM for multi-user authentication
-
 // INSERT multi-user authentication
 
 
@@ -41,7 +35,7 @@ buttonShaper passwdBS(passwd_start_Bin, passwd_start_Bout, clk, rst);
 // INSERT Sequencer
 
 
-//INSERT RAM
+//INSERT RAM ???
 
 
 //instantiate twoDigitTimer
