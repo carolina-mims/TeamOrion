@@ -36,7 +36,7 @@ wire passwd_start_Bout;
 
 // INSERT multi-user authentication
 
-  // Multi_User_Auth multiAuthentication (clk, rst, userInput, passwd_start_Bout, LogIn, LogOut,InternalID, GCLogout ); //probably need to re order things
+  Multi_User_Auth multiAuthentication(passwd_start_Bout,userInput,clk,rst,LogIn,LogOut,GCLogout,InternalID); //probably need to re order things
 
 
 //two second timer
