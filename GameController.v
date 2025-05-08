@@ -5,7 +5,7 @@ module GameController(Passed, LoadPlayerIn, GameStartButton, Clk, Rst, TimerReco
     input [3:0] RAMOutput;
     input [4:0] PlayerID;
     output TimerReconfig, TimerEnable, GoGen, TwoSecEnable;
-    output [3:0] Diff;
+    output [1:0] Diff;
     output [4:0] SeqAddr;
     output [3:0] DispDigit;
     output Logout;
@@ -61,7 +61,7 @@ module GameController(Passed, LoadPlayerIn, GameStartButton, Clk, Rst, TimerReco
                 TimerReconfig <= 1'b0;
                 TimerEnable <= 1'b0;
                 GoGen <= 1'b0;
-                Diff <= 4'b0001;
+                Diff <= 2'b01;
                 SeqAddr <= 5'b00000;
                 State <= WaitForAuth;
                 CounterDisp <= 0;
@@ -78,7 +78,20 @@ module GameController(Passed, LoadPlayerIn, GameStartButton, Clk, Rst, TimerReco
                 end
               ChooseDiff: begin
                 if(GameStartButton == 1'b1) begin
-                  Diff <= PlayerNum;
+                  case(PlayerNum)
+                    4'b0001: begin
+                      Diff <= 2'b01;
+                     end
+                    4'b0010: begin
+                      Diff <= 2'b10;
+                     end
+                    4'b0011: begin
+                      Diff <= 2'b11;
+                     end
+                    default: begin
+                      Diff <= 2'b01;
+                     end
+                  endcase
                   State <= ResetTimer;
                  end
                 else if(LoadPlayerIn == 1'b1) begin
