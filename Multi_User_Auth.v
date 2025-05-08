@@ -6,7 +6,7 @@ module Multi_User_Auth(Game_Enter,User_digit,clk,rst,LogIn,LogOut,GCLogOut,Inter
 	
     // wires to output
     wire LogIn_int;
-    wire LogOut_int;
+
     //wires between controllers
     wire MatchedID_int;
     wire [4:0] InternalID_int;
@@ -16,12 +16,8 @@ module Multi_User_Auth(Game_Enter,User_digit,clk,rst,LogIn,LogOut,GCLogOut,Inter
     PassController	Pass_Control(Game_Enter,User_digit,MatchedID_int,InternalID_int,clk,rst,LogIn_int, LogOut_int, GCLogOut, Guest_int);
 
    // assign wires internal to output
-   assign LogIn = LogIn_int;
-   assign LogOut = LogOut_int;
-   assign InternalID = InternalID_int;
-
-
-
-
-
+   assign LogIn = LogIn_int; //signal for LED
+   assign LogOut = !LogIn_int; //signal for LED
+   assign InternalID = InternalID_int; //signal for Game Controller
 endmodule
+
