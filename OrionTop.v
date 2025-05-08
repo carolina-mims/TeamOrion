@@ -3,7 +3,7 @@
 // Description: top level module that connects all other modules
 
 
-module OrionTop(userInput, passwd_start_Bin,rst, clk, tensDisplay, onesDisplay, playerDisplay, randnumDisplay, LogIn, LogOut); 
+module OrionTop(userInput, passwd_start_Bin, LoadPlayer_Bin, rst, clk, tensDisplay, onesDisplay, playerDisplay, randnumDisplay, LogIn, LogOut, PersonalWin, GlobalWin); 
 
 
   input [3:0] userInput;
