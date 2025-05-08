@@ -29,39 +29,28 @@ module UserIDController(Game_Enter,User_digit,MatchedID,InternalID,clk,rst, LogO
 		     ROM_digit <= 4'b0000;
 		     Guest <= 1'b0;
 		     State <= DIGITCHECK;
+			  MatchedID <= 1'b0;
+			  InternalID <= 5'b0;
+			  
 		end
 		else begin
 			case(State)
-
-				WAITFORLOGOUT: begin
-					State<=DIGITCHECK;
-					end
 				DIGITCHECK: begin
-
-				    if(LogOut == 1'b1)begin // LOGOUT IF USER LOGS OUT OR RUNS OUT OF PASSWORD ATTEMPTS
-					MatchedID <= 1'b0;
-					InternalID <= 4'b0000; 
-					State<=DIGITCHECK;
-				// did user press enter button?
-				     	if(Game_Enter==1'b1) begin //yes?
-					     UserID <= (UserID << 4) | User_digit; // shifts UserID by 4 then changes [3:0] from 0000 to UserDigit to the end
+				    if(Game_Enter==1'b1) begin //yes?
+					    UserID <= (UserID << 4) | User_digit; // shifts UserID by 4 then changes [3:0] from 0000 to UserDigit to the end
 						if (DigitCnt == 2'd3) begin
-					     	     State <= FETCHROM;
-					     	     DigitCnt<=2'b00;
+					     	State <= FETCHROM;
+					     	DigitCnt<=2'b00;
 					     	end
 						else begin
-					     	     State <= DIGITCHECK;
-					     	     DigitCnt <= DigitCnt + 1;
+					     	State <= DIGITCHECK;
+					     	DigitCnt <= DigitCnt + 1;
 					     	end
 					end
-				     	else begin // no button press?
+				    else begin // no button press?
 					     State <= DIGITCHECK;
+						end
 					end
-				     end
-				     else begin 
-					State<=DIGITCHECK;
-				     end
-				end
 				FETCHROM: begin
 				     addr <= addrCnt;
 				     State <= ROMCYC1;
@@ -85,20 +74,20 @@ module UserIDController(Game_Enter,User_digit,MatchedID,InternalID,clk,rst, LogO
 					end
 				end
 				COMPARE: begin
-				     if( UserID == ROMID) begin //if the passwords are equal
-					State <= PASSED; //moved to Passed State
-					addrCnt<=addrCnt - 4;
-					end
-				     else begin
-					if( ROMID == 16'hFFFF) begin
-					    State<=DIGITCHECK;
+				    if( UserID == ROMID) begin //if the USERIDs are equal
+						State <= PASSED; //moved to Passed State
+						addrCnt<=addrCnt - 4;
+						end
+				    else begin
+						if( ROMID == 16'hFFFF) begin //invalid user ID, no more to compare so go back to start
+					    	State<=DIGITCHECK;
 
-					    end
-					else begin
-					    State<=FETCHROM;
-					    ROMID <= 16'd0;
-					end
-					end
+					    	end
+						else begin // invalid user ID continue comparing
+					    	State<=FETCHROM; 
+					    	ROMID <= 16'd0;
+							end
+						end
 				end
 				PASSED: begin
 			 	    if( ROMID == 16'h0000) begin // Guest Password
@@ -107,9 +96,17 @@ module UserIDController(Game_Enter,User_digit,MatchedID,InternalID,clk,rst, LogO
 					else begin
 					    Guest <= 1'b0;
 					    end
-					MatchedID <= 1'b1;
-					InternalID <= addrCnt; 
-					State <= WAITFORLOGOUT; 
+					if(LogOut == 1'b1)begin // LOGOUT IF USER LOGS OUT OR RUNS OUT OF PASSWORD ATTEMPTS
+						MatchedID <= 1'b0;
+						InternalID <= 4'b0000;
+						Guest <= 1'b0; 
+						State<=DIGITCHECK;
+				     	end
+				    else begin 
+						MatchedID <= 1'b1;
+						InternalID <= addrCnt; 
+						State <= PASSED; 
+				    	end
 					end
 				default: begin
 		     		   addrCnt <= 2'b00;
@@ -120,6 +117,8 @@ module UserIDController(Game_Enter,User_digit,MatchedID,InternalID,clk,rst, LogO
 		     		   ROM_digit <= 4'b0000;
 		     		   Guest <= 1'b0;
 		     		   State <= DIGITCHECK;
+				   MatchedID <= 1'b0;
+				   InternalID <= 5'b0;
 				end
 			endcase
 		end
