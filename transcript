@@ -1,128 +1,234 @@
 # Compile of osequencer.v was successful.
-# Compile of osequencer.v was successful.
-# Compile of lfsr.v was successful.
-# 2 compiles, 0 failed with no errors.
-# Compile of osequencer.v was successful.
-# Compile of lfsr.v was successful.
-# 2 compiles, 0 failed with no errors.
-# Compile of osequencer.v was successful.
-# Compile of lfsr.v was successful.
-# Compile of testbench_Final_Section.v failed with 2 errors.
-# 3 compiles, 1 failed with 2 errors.
-# Compile of osequencer.v was successful.
 # Compile of lfsr.v was successful.
 # Compile of testbench_Final_Section.v was successful.
-# 3 compiles, 0 failed with no errors.
-vsim -gui work.testbench_Final_Section
-# vsim -gui work.testbench_Final_Section 
-# Start time: 22:19:16 on May 07,2025
-# Loading work.testbench_Final_Section
-# Loading work.osequencer
-# Loading work.lfsr
-add wave -position insertpoint sim:/testbench_Final_Section/*
-add wave -r /*
-run
-restart -f
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Compile of osequencer.v was successful.
-# Compile of lfsr.v was successful.
-# Compile of testbench_Final_Section.v was successful.
-# 3 compiles, 0 failed with no errors.
-restart -f
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.testbench_Final_Section
-# Loading work.osequencer
-# Loading work.lfsr
-# Compile of osequencer.v was successful.
-# Compile of lfsr.v was successful.
-# Compile of testbench_Final_Section.v was successful.
-# 3 compiles, 0 failed with no errors.
-run
-# GetModuleFileName: The specified module could not be found.
-# 
-# 
-# Break in Module osequencer at C:/ADD_Demos/Final_section/osequencer.v line 49
-run
-# Break in Module osequencer at C:/ADD_Demos/Final_section/osequencer.v line 49
-# Compile of osequencer.v was successful.
-# Compile of lfsr.v failed with 9 errors.
-# Compile of testbench_Final_Section.v was successful.
-# 3 compiles, 1 failed with 9 errors.
-# Compile of osequencer.v was successful.
-# Compile of lfsr.v was successful.
-# Compile of testbench_Final_Section.v was successful.
-# 3 compiles, 0 failed with no errors.
-restart -f
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.testbench_Final_Section
-# Loading work.osequencer
-# Loading work.lfsr
-run
-# GetModuleFileName: The specified module could not be found.
-# 
-# 
-# Break in Module osequencer at C:/ADD_Demos/Final_section/osequencer.v line 49
-run
-# Break in Module osequencer at C:/ADD_Demos/Final_section/osequencer.v line 49
-run
-# Break in Module osequencer at C:/ADD_Demos/Final_section/osequencer.v line 49
+# Compile of RAM_Final.v was successful.
+# 4 compiles, 0 failed with no errors.
 # Compile of osequencer.v failed with 2 errors.
 # Compile of lfsr.v was successful.
 # Compile of testbench_Final_Section.v was successful.
-# 3 compiles, 1 failed with 2 errors.
+# Compile of RAM_Final.v was successful.
+# 4 compiles, 1 failed with 2 errors.
 # Compile of osequencer.v failed with 1 errors.
 # Compile of lfsr.v was successful.
 # Compile of testbench_Final_Section.v was successful.
-# 3 compiles, 1 failed with 1 error.
+# Compile of RAM_Final.v was successful.
+# 4 compiles, 1 failed with 1 error.
 # Compile of osequencer.v was successful.
 # Compile of lfsr.v was successful.
 # Compile of testbench_Final_Section.v was successful.
-# 3 compiles, 0 failed with no errors.
-# Compile of osequencer.v was successful.
-# Compile of lfsr.v was successful.
-# Compile of testbench_Final_Section.v was successful.
-# 3 compiles, 0 failed with no errors.
-restart -f
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Compile of RAM_Final.v was successful.
+# 4 compiles, 0 failed with no errors.
+vsim -gui work.testbench_Final_Section
+# vsim -gui work.testbench_Final_Section 
+# Start time: 16:07:16 on May 08,2025
 # Loading work.testbench_Final_Section
 # Loading work.osequencer
 # Loading work.lfsr
-run
-# GetModuleFileName: The specified module could not be found.
-# 
-# 
-run
+# ** Error: (vsim-3033) Instantiation of 'ram_writer' failed. The design unit was not found.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_Final_Section/DUT_osequencer File: C:/ADD_Demos/Final_section/osequencer.v Line: 24
+#         Searched libraries:
+#             C:/ADD_Demos/Final_section/work
+# Error loading design
+# End time: 16:07:17 on May 08,2025, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 6
 # Compile of osequencer.v was successful.
 # Compile of lfsr.v was successful.
 # Compile of testbench_Final_Section.v was successful.
-# 3 compiles, 0 failed with no errors.
-restart -f
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Compile of RAM_Final.v was successful.
+# 4 compiles, 0 failed with no errors.
+vsim -gui work.testbench_Final_Section
+# vsim -gui work.testbench_Final_Section 
+# Start time: 16:08:55 on May 08,2025
 # Loading work.testbench_Final_Section
 # Loading work.osequencer
 # Loading work.lfsr
-run
-# GetModuleFileName: The specified module could not be found.
-# 
-# 
-run
+# ** Error: (vsim-3033) Instantiation of 'ram_writer' failed. The design unit was not found.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_Final_Section/DUT_osequencer File: C:/ADD_Demos/Final_section/osequencer.v Line: 20
+#         Searched libraries:
+#             C:/ADD_Demos/Final_section/work
+# Error loading design
+# End time: 16:08:56 on May 08,2025, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 2
 # Compile of osequencer.v was successful.
 # Compile of lfsr.v was successful.
 # Compile of testbench_Final_Section.v was successful.
-# 3 compiles, 0 failed with no errors.
-# Compile of osequencer.v was successful.
-# Compile of lfsr.v was successful.
-# Compile of testbench_Final_Section.v was successful.
-# 3 compiles, 0 failed with no errors.
-restart -f
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Compile of RAM_Final.v was successful.
+# 4 compiles, 0 failed with no errors.
+vsim -gui work.testbench_Final_Section
+# vsim -gui work.testbench_Final_Section 
+# Start time: 16:09:21 on May 08,2025
 # Loading work.testbench_Final_Section
 # Loading work.osequencer
 # Loading work.lfsr
-run
-# GetModuleFileName: The specified module could not be found.
-# 
-# 
-run
-# End time: 00:03:49 on May 08,2025, Elapsed time: 1:44:33
-# Errors: 0, Warnings: 1
+# ** Error: (vsim-3033) Instantiation of 'ram_writer' failed. The design unit was not found.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_Final_Section/DUT_osequencer File: C:/ADD_Demos/Final_section/osequencer.v Line: 20
+#         Searched libraries:
+#             C:/ADD_Demos/Final_section/work
+# Error loading design
+# End time: 16:09:21 on May 08,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 2
+# Compile of osequencer.v was successful.
+# Compile of lfsr.v was successful.
+# Compile of testbench_Final_Section.v was successful.
+# Compile of RAM_Final.v was successful.
+# 4 compiles, 0 failed with no errors.
+vsim -gui work.testbench_Final_Section
+# vsim -gui work.testbench_Final_Section 
+# Start time: 16:31:57 on May 08,2025
+# Loading work.testbench_Final_Section
+# Loading work.osequencer
+# Loading work.lfsr
+# Loading work.RAM_Final
+# ** Error: (vsim-3033) Instantiation of 'altsyncram' failed. The design unit was not found.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_Final_Section/DUT_osequencer/My_RAM File: C:/ADD_Demos/Final_section syn/RAM_Final.v Line: 75
+#         Searched libraries:
+#             C:/ADD_Demos/Final_section/work
+# Error loading design
+# End time: 16:31:58 on May 08,2025, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 2
+# Compile of osequencer.v was successful.
+# Compile of lfsr.v was successful.
+# Compile of testbench_Final_Section.v was successful.
+# Compile of RAM_Final.v was successful.
+# 4 compiles, 0 failed with no errors.
+vsim -gui work.testbench_Final_Section
+# vsim -gui work.testbench_Final_Section 
+# Start time: 16:33:05 on May 08,2025
+# Loading work.testbench_Final_Section
+# Loading work.osequencer
+# Loading work.lfsr
+# Loading work.RAM_Final
+# ** Error: (vsim-3033) Instantiation of 'altsyncram' failed. The design unit was not found.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_Final_Section/DUT_osequencer/My_RAM File: C:/ADD_Demos/Final_section syn/RAM_Final.v Line: 75
+#         Searched libraries:
+#             C:/ADD_Demos/Final_section/work
+# Error loading design
+# End time: 16:33:06 on May 08,2025, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 2
+vsim -gui work.testbench_Final_Section -L altera_mf -L altera_mf_ver
+# vsim -gui work.testbench_Final_Section -L altera_mf -L altera_mf_ver 
+# Start time: 16:44:39 on May 08,2025
+# Loading work.testbench_Final_Section
+# Loading work.osequencer
+# Loading work.lfsr
+# Loading work.RAM_Final
+# ** Error (suppressible): (vsim-10000) Unresolved defparam reference to 'altsyncram_component' in altsyncram_component.address_reg_b.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_Final_Section/DUT_osequencer/My_RAM File: C:/ADD_Demos/Final_section syn/RAM_Final.v Line: 100
+# ** Error (suppressible): (vsim-10000) Unresolved defparam reference to 'altsyncram_component' in altsyncram_component.clock_enable_input_a.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_Final_Section/DUT_osequencer/My_RAM File: C:/ADD_Demos/Final_section syn/RAM_Final.v Line: 101
+# ** Error (suppressible): (vsim-10000) Unresolved defparam reference to 'altsyncram_component' in altsyncram_component.clock_enable_input_b.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_Final_Section/DUT_osequencer/My_RAM File: C:/ADD_Demos/Final_section syn/RAM_Final.v Line: 102
+# ** Error (suppressible): (vsim-10000) Unresolved defparam reference to 'altsyncram_component' in altsyncram_component.clock_enable_output_a.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_Final_Section/DUT_osequencer/My_RAM File: C:/ADD_Demos/Final_section syn/RAM_Final.v Line: 103
+# ** Error (suppressible): (vsim-10000) Unresolved defparam reference to 'altsyncram_component' in altsyncram_component.clock_enable_output_b.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_Final_Section/DUT_osequencer/My_RAM File: C:/ADD_Demos/Final_section syn/RAM_Final.v Line: 104
+# ** Error (suppressible): (vsim-10000) Unresolved defparam reference to 'altsyncram_component' in altsyncram_component.indata_reg_b.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_Final_Section/DUT_osequencer/My_RAM File: C:/ADD_Demos/Final_section syn/RAM_Final.v Line: 105
+# ** Error (suppressible): (vsim-10000) Unresolved defparam reference to 'altsyncram_component' in altsyncram_component.intended_device_family.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_Final_Section/DUT_osequencer/My_RAM File: C:/ADD_Demos/Final_section syn/RAM_Final.v Line: 106
+# ** Error (suppressible): (vsim-10000) Unresolved defparam reference to 'altsyncram_component' in altsyncram_component.lpm_type.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_Final_Section/DUT_osequencer/My_RAM File: C:/ADD_Demos/Final_section syn/RAM_Final.v Line: 107
+# ** Error (suppressible): (vsim-10000) Unresolved defparam reference to 'altsyncram_component' in altsyncram_component.numwords_a.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_Final_Section/DUT_osequencer/My_RAM File: C:/ADD_Demos/Final_section syn/RAM_Final.v Line: 108
+# ** Error (suppressible): (vsim-10000) Unresolved defparam reference to 'altsyncram_component' in altsyncram_component.numwords_b.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_Final_Section/DUT_osequencer/My_RAM File: C:/ADD_Demos/Final_section syn/RAM_Final.v Line: 109
+# ** Error (suppressible): (vsim-10000) Unresolved defparam reference to 'altsyncram_component' in altsyncram_component.operation_mode.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_Final_Section/DUT_osequencer/My_RAM File: C:/ADD_Demos/Final_section syn/RAM_Final.v Line: 110
+# ** Error (suppressible): (vsim-10000) Unresolved defparam reference to 'altsyncram_component' in altsyncram_component.outdata_aclr_a.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_Final_Section/DUT_osequencer/My_RAM File: C:/ADD_Demos/Final_section syn/RAM_Final.v Line: 111
+# ** Error (suppressible): (vsim-10000) Unresolved defparam reference to 'altsyncram_component' in altsyncram_component.outdata_aclr_b.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_Final_Section/DUT_osequencer/My_RAM File: C:/ADD_Demos/Final_section syn/RAM_Final.v Line: 112
+# ** Error (suppressible): (vsim-10000) Unresolved defparam reference to 'altsyncram_component' in altsyncram_component.outdata_reg_a.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_Final_Section/DUT_osequencer/My_RAM File: C:/ADD_Demos/Final_section syn/RAM_Final.v Line: 113
+# ** Error (suppressible): (vsim-10000) Unresolved defparam reference to 'altsyncram_component' in altsyncram_component.outdata_reg_b.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_Final_Section/DUT_osequencer/My_RAM File: C:/ADD_Demos/Final_section syn/RAM_Final.v Line: 114
+# ** Error (suppressible): (vsim-10000) Unresolved defparam reference to 'altsyncram_component' in altsyncram_component.power_up_uninitialized.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_Final_Section/DUT_osequencer/My_RAM File: C:/ADD_Demos/Final_section syn/RAM_Final.v Line: 115
+# ** Error (suppressible): (vsim-10000) Unresolved defparam reference to 'altsyncram_component' in altsyncram_component.read_during_write_mode_mixed_ports.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_Final_Section/DUT_osequencer/My_RAM File: C:/ADD_Demos/Final_section syn/RAM_Final.v Line: 116
+# ** Error (suppressible): (vsim-10000) Unresolved defparam reference to 'altsyncram_component' in altsyncram_component.read_during_write_mode_port_a.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_Final_Section/DUT_osequencer/My_RAM File: C:/ADD_Demos/Final_section syn/RAM_Final.v Line: 117
+# ** Error (suppressible): (vsim-10000) Unresolved defparam reference to 'altsyncram_component' in altsyncram_component.read_during_write_mode_port_b.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_Final_Section/DUT_osequencer/My_RAM File: C:/ADD_Demos/Final_section syn/RAM_Final.v Line: 118
+# ** Error (suppressible): (vsim-10000) Unresolved defparam reference to 'altsyncram_component' in altsyncram_component.widthad_a.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_Final_Section/DUT_osequencer/My_RAM File: C:/ADD_Demos/Final_section syn/RAM_Final.v Line: 119
+# ** Error (suppressible): (vsim-10000) Unresolved defparam reference to 'altsyncram_component' in altsyncram_component.widthad_b.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_Final_Section/DUT_osequencer/My_RAM File: C:/ADD_Demos/Final_section syn/RAM_Final.v Line: 120
+# ** Error (suppressible): (vsim-10000) Unresolved defparam reference to 'altsyncram_component' in altsyncram_component.width_a.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_Final_Section/DUT_osequencer/My_RAM File: C:/ADD_Demos/Final_section syn/RAM_Final.v Line: 121
+# ** Error (suppressible): (vsim-10000) Unresolved defparam reference to 'altsyncram_component' in altsyncram_component.width_b.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_Final_Section/DUT_osequencer/My_RAM File: C:/ADD_Demos/Final_section syn/RAM_Final.v Line: 122
+# ** Error (suppressible): (vsim-10000) Unresolved defparam reference to 'altsyncram_component' in altsyncram_component.width_byteena_a.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_Final_Section/DUT_osequencer/My_RAM File: C:/ADD_Demos/Final_section syn/RAM_Final.v Line: 123
+# ** Error (suppressible): (vsim-10000) Unresolved defparam reference to 'altsyncram_component' in altsyncram_component.width_byteena_b.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_Final_Section/DUT_osequencer/My_RAM File: C:/ADD_Demos/Final_section syn/RAM_Final.v Line: 124
+# ** Error (suppressible): (vsim-10000) Unresolved defparam reference to 'altsyncram_component' in altsyncram_component.wrcontrol_wraddress_reg_b.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_Final_Section/DUT_osequencer/My_RAM File: C:/ADD_Demos/Final_section syn/RAM_Final.v Line: 125
+# Error loading design
+# End time: 16:44:39 on May 08,2025, Elapsed time: 0:00:00
+# Errors: 26, Warnings: 1
+vsim -gui -L altera_mf_ver -L altera_mf work.testbench_Final_Section
+# vsim -gui -L altera_mf_ver -L altera_mf work.testbench_Final_Section 
+# Start time: 16:48:40 on May 08,2025
+# Loading work.testbench_Final_Section
+# Loading work.osequencer
+# Loading work.lfsr
+# Loading work.RAM_Final
+# Loading altera_mf_ver.altsyncram
+# Loading altera_mf_ver.altsyncram_body
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'q_a'.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_Final_Section/DUT_osequencer/My_RAM File: C:/ADD_Demos/Final_section/osequencer.v Line: 20
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'q_b'.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_Final_Section/DUT_osequencer/My_RAM File: C:/ADD_Demos/Final_section/osequencer.v Line: 20
+# Error loading design
+# End time: 16:48:41 on May 08,2025, Elapsed time: 0:00:01
+# Errors: 2, Warnings: 1
+# Compile of osequencer.v was successful.
+# Compile of lfsr.v was successful.
+# Compile of testbench_Final_Section.v was successful.
+# Compile of RAM_Final.v was successful.
+# 4 compiles, 0 failed with no errors.
+vsim -gui -L altera_mf_ver -L altera_mf work.testbench_Final_Section
+# vsim -gui -L altera_mf_ver -L altera_mf work.testbench_Final_Section 
+# Start time: 16:49:02 on May 08,2025
+# Loading work.testbench_Final_Section
+# Loading work.osequencer
+# Loading work.lfsr
+# Loading work.RAM_Final
+# Loading altera_mf_ver.altsyncram
+# Loading altera_mf_ver.altsyncram_body
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'q_a'.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_Final_Section/DUT_osequencer/My_RAM File: C:/ADD_Demos/Final_section/osequencer.v Line: 20
+# ** Error (suppressible): (vsim-3053) Illegal output or inout port connection for port 'q_b'.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench_Final_Section/DUT_osequencer/My_RAM File: C:/ADD_Demos/Final_section/osequencer.v Line: 20
+# Error loading design
+# End time: 16:49:03 on May 08,2025, Elapsed time: 0:00:01
+# Errors: 2, Warnings: 2
+# Compile of osequencer.v was successful.
+# Compile of lfsr.v was successful.
+# Compile of testbench_Final_Section.v was successful.
+# Compile of RAM_Final.v was successful.
+# 4 compiles, 0 failed with no errors.
+# Compile of osequencer.v was successful.
+# Compile of lfsr.v was successful.
+# Compile of testbench_Final_Section.v was successful.
+# Compile of RAM_Final.v was successful.
+# 4 compiles, 0 failed with no errors.
+vsim -gui -L altera_mf_ver -L altera_mf work.testbench_Final_Section
+# vsim -gui -L altera_mf_ver -L altera_mf work.testbench_Final_Section 
+# Start time: 16:50:18 on May 08,2025
+# Loading work.testbench_Final_Section
+# Loading work.osequencer
+# Loading work.lfsr
+# Loading work.RAM_Final
+# Loading altera_mf_ver.altsyncram
+# Loading altera_mf_ver.altsyncram_body
+# Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
+# Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
+quit -sim
+# End time: 16:52:24 on May 08,2025, Elapsed time: 0:02:06
+# Errors: 0, Warnings: 3

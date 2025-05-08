@@ -6,9 +6,12 @@ module osequencer(
 );
 	reg [4:0] addr = 5'd0;
 	reg [15:0] lfsr_state = 16'hBEEF;
+	reg [3:0] lfsr_data_out = 4'd0;  // Take lower 4 bits of LFSR output
 	wire [15:0] lfsr_out;
 	reg enable = 1'b0;
 	reg [1:0] STAGE;
+	wire [3:0] q_b;
+	wire [3:0] q_a;
 
 	parameter WAIT = 2'd0, GENERATE = 2'd1, WRITE = 2'd2, DONE = 2'd3;
 
@@ -16,6 +19,8 @@ module osequencer(
 
 	// Instantiate our LFSR module for RNG
 	lfsr my_lfsr (lfsr_state, lfsr_out, enable, clk, rst);
+	RAM_Final My_RAM(addr, 5'd0, clk, lfsr_data_out, 4'd0,enable, 1'b0, q_b, q_a);
+	//module RAM_Final (address_a, address_b, clock, data_a, data_b, wren_a, wren_b, q_a, q_b);
 
 	always @(posedge clk) begin
 		if (!rst) begin
@@ -23,6 +28,7 @@ module osequencer(
 			enable <= 1'b0;
 			STAGE <= WAIT;
 			addr <= 5'd0;
+			lfsr_data_out <= lfsr_state[3:0];
 			lfsr_state <= 16'hBEEF;
 		end
 		else begin
@@ -41,7 +47,6 @@ module osequencer(
 				GENERATE: begin
 					enable <= 1'b1;          // Let LFSR generate a new value
 					STAGE <= WRITE;          // Go to write on next cycle
-					ram[addr] <= lfsr_state; // WRITE TO RAM
 				end
 
 				WRITE: begin
@@ -49,6 +54,7 @@ module osequencer(
 					ram[addr] <= lfsr_state;  // Capture LFSR output
 					lfsr_state <= lfsr_out; // Update state
 					addr <= addr + 1;
+					lfsr_data_out <= lfsr_state[3:0];
 
 					if (addr == 5'd31)
 						STAGE <= DONE;
@@ -67,6 +73,7 @@ module osequencer(
 					STAGE <= WAIT;
 					addr <= 5'd0;
 					lfsr_state <= 16'hBEEF;
+					lfsr_data_out <= lfsr_state[3:0];
 				end
 			endcase
 		end

@@ -5,14 +5,14 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	testbench_Final_Section
 
-} {} {}} C:/ADD_Demos/Final_section/osequencer.v {1 {vlog -work work -stats=none C:/ADD_Demos/Final_section/osequencer.v
+} {} {}} {C:/ADD_Demos/Final_section syn/RAM_Final.v} {1 {vlog -work work -stats=none {C:/ADD_Demos/Final_section syn/RAM_Final.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module osequencer
+-- Compiling module RAM_Final
 
 Top level modules:
-	osequencer
+	RAM_Final
 
-} {} {}} C:/ADD_Demos/Final_section/lfsr.v {1 {vlog -work work -stats=none C:/ADD_Demos/Final_section/lfsr.v
+} {} {}} C:/ADD_Demos/Final_section/lfsr.v {1 {vlog -work work -stats=none {C:\ADD_Demos\Final_section\lfsr.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module lfsr
 

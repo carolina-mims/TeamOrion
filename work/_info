@@ -10,51 +10,75 @@ z2
 cModel Technology
 dC:/intelFPGA_lite/20.1
 vlfsr
-Z0 !s110 1746680359
+Z0 !s110 1746741011
 !i10b 1
 !s100 [DM32<nWJfPb:4KcQaRe?1
 Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
-I>XJWXz;A=:TkfDC]806O@1
+I<30]bHWafM7lYjlHaKnSF1
 Z2 VDg1SIo80bB@j0V0VzS_@n1
 Z3 dC:/ADD_Demos/Final_section
 w1746679729
-8C:/ADD_Demos/Final_section/lfsr.v
-FC:/ADD_Demos/Final_section/lfsr.v
-!i122 41
+8C:\ADD_Demos\Final_section\lfsr.v
+FC:\ADD_Demos\Final_section\lfsr.v
+!i122 82
 L0 1 31
 Z4 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z5 !s108 1746680359.000000
-!s107 C:/ADD_Demos/Final_section/lfsr.v|
-!s90 -reportprogress|300|-work|work|-stats=none|C:/ADD_Demos/Final_section/lfsr.v|
+Z5 !s108 1746741011.000000
+!s107 C:\ADD_Demos\Final_section\lfsr.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:\ADD_Demos\Final_section\lfsr.v|
 !i113 1
 Z6 o-work work
 Z7 tCvgOpt 0
 vosequencer
 R0
 !i10b 1
-!s100 00^9IIdOPVZoWB5?eboJR3
+!s100 AkC7=TMIIJ49UnbBZV_Ih2
 R1
-I8TYY>Wf`d2WY3lXJk9cZN1
+I]6JITSf0z8GkBJe0NA4`41
 R2
 R3
-w1746680343
-8C:/ADD_Demos/Final_section/osequencer.v
-FC:/ADD_Demos/Final_section/osequencer.v
-!i122 40
-L0 1 74
+w1746741002
+8C:\ADD_Demos\Final_section\osequencer.v
+FC:\ADD_Demos\Final_section\osequencer.v
+!i122 81
+L0 1 80
 R4
 r1
 !s85 0
 31
 R5
-!s107 C:/ADD_Demos/Final_section/osequencer.v|
-!s90 -reportprogress|300|-work|work|-stats=none|C:/ADD_Demos/Final_section/osequencer.v|
+!s107 C:\ADD_Demos\Final_section\osequencer.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:\ADD_Demos\Final_section\osequencer.v|
 !i113 1
 R6
 R7
+vRAM_Final
+R0
+!i10b 1
+!s100 5gUX3lU7l^<fG]_RmGNo=1
+R1
+I_3U_DEQPgUX@c8zI59EIU0
+R2
+R3
+w1746736641
+8C:/ADD_Demos/Final_section syn/RAM_Final.v
+FC:/ADD_Demos/Final_section syn/RAM_Final.v
+!i122 84
+L0 40 89
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/ADD_Demos/Final_section syn/RAM_Final.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/ADD_Demos/Final_section syn/RAM_Final.v|
+!i113 1
+R6
+R7
+n@r@a@m_@final
 vtestbench_Final_Section
 R0
 !i10b 1
@@ -66,7 +90,7 @@ R3
 w1746674339
 8C:/ADD_Demos/Final_section/testbench_Final_Section.v
 FC:/ADD_Demos/Final_section/testbench_Final_Section.v
-!i122 42
+!i122 83
 L0 2 23
 R4
 r1
