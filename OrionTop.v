@@ -7,7 +7,7 @@ module OrionTop(userInput, passwd_start_Bin,rst, clk, tensDisplay, onesDisplay, 
 
 
   input [3:0] userInput;
-  input  passwd_start_Bin, rst;
+  input  passwd_start_Bin;
   input clk, rst;
   output [6:0] playerDisplay, randnumDisplay, tensDisplay, onesDisplay;
 // LED lights output 
@@ -22,13 +22,19 @@ wire passwd_start_Bout;
   wire [3:0] tensDigit, onesDigit;
   
 //wires for TwoSecondTimer
-  wire enable, pulse_out_1ms, pulse_out_100ms, pulse_out_2s;
+  wire pulse_out_2s;
+  wire pulse_out_1ms, pulse_out_100ms;
 
 //wires for Multi_User_Auth
   wire internalID, GCLogout;
 
-//wires for Digit_Sequencer
-  wire RAM_Done, Sequence_Start;
+
+//wires gameController
+ wire GoGen, FinGen, TwoSecEnable, PersonalWin, GlobalWinner, LoadPlayerIn;
+wire [3:0] DispDigit;
+wire[4:0] SeqAddr;
+wire [3:0] RAMOutput;
+wire [3:0] Diff;
 //button shapers
 
   buttonShaper passwdBS(passwd_start_Bin, passwd_start_Bout, clk, rst);  
@@ -36,30 +42,30 @@ wire passwd_start_Bout;
 
 // INSERT multi-user authentication
 
-  Multi_User_Auth multiAuthentication(passwd_start_Bout,userInput,clk,rst,LogIn,LogOut,GCLogout,InternalID); //probably need to re order things
-
+  Multi_User_Auth multiAuthentication(passwd_start_Bout,userInput,clk,rst,LogIn,LogOut,GCLogout,InternalID); 
 
 //two second timer
- TwoSecondTimer twoSecTimer (clk, rst, enable, pulse_out_1ms, pulse_out_100ms, pulse_out_2s);
+ TwoSecondTimer twoSecTimer (clk, rst, TwoSecEnable, pulse_out_1ms, pulse_out_100ms, pulse_out_2s);
   
 //INSERT gamecontroller
-
-
+GameController gameControl(LogIn, LoadPlayerIn, passwd_start_Bout, clk, rst, timerReconfig, timerEnable , timeout, GoGen, FinGen, SeqAddr, Diff, userInput, RAMOutput, DispDigit, TwoSecEnable, pulse_out_2s, InternalID, PersonalWin, GlobalWinner, GCLogout);
+//where are the RAMOutput, SeqAddr, LoadPlayerIn, PersonalWin, GlobalWinner goingto/coming from? 
+  
 // INSERT Sequencer
-  //DigitSequencer sequencer ( RAM_Done, Sequence_Start);
+  osequencer digitSequencer(GoGen, clk, rst, FinGen);
 
-//INSERT RAM ???
+
 
 
 //instantiate twoDigitTimer
-  twoDigitTimer DigitsTimer (tensDigit, onesDigit, timeout, timerReconfig, timerEnable,gameLevel,clk,rst);
+  twoDigitTimer DigitsTimer (tensDigit, onesDigit, timeout, timerReconfig, timerEnable,Diff,clk,rst); //make sure Diff is for the gameLevel 
 
 // INSERT PLAYER'S Displays 
  // decoder_4to7 playerDisp ( *INSERT SIGNAL FROM GAME CONTROLLER* , playerDisplay);
  
 
 //INSERT RANDOM # Display
-  //decoder_4to7 randnumDisp (*INSERT SIGNAL FROME GAME CONTROLLER* , randnumDisplay);
+ decoder_4to7 randnumDisp (DispDigit , randnumDisplay);
 
 
 
