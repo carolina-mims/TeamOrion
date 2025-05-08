@@ -1,0 +1,75 @@
+module osequencer(
+    input start,
+    input clk,
+    input rst,
+    output reg finish
+);
+	reg [4:0] addr = 5'd0;
+	reg [15:0] lfsr_state = 16'hBEEF;
+	wire [15:0] lfsr_out;
+	reg enable = 1'b0;
+	reg [1:0] STAGE;
+
+	parameter WAIT = 2'd0, GENERATE = 2'd1, WRITE = 2'd2, DONE = 2'd3;
+
+	reg [15:0] ram [0:31]; // Internal RAM to storing
+
+	// Instantiate our LFSR module for RNG
+	lfsr my_lfsr (lfsr_state, lfsr_out, enable, clk, rst);
+
+	always @(posedge clk) begin
+		if (!rst) begin
+			finish <= 1'b0;
+			enable <= 1'b0;
+			STAGE <= WAIT;
+			addr <= 5'd0;
+			lfsr_state <= 16'hBEEF;
+		end
+		else begin
+			case (STAGE)
+				WAIT: begin
+					finish <= 1'b0;
+					if (start) begin
+						STAGE <= GENERATE;
+						enable <= 1'b1;
+					end 
+					else begin
+						enable <= 1'b0;
+					end
+                		end
+
+				GENERATE: begin
+					enable <= 1'b1;          // Let LFSR generate a new value
+					STAGE <= WRITE;          // Go to write on next cycle
+					ram[addr] <= lfsr_state; // WRITE TO RAM
+				end
+
+				WRITE: begin
+					enable <= 1'b0;         // Turn off LFSR to freeze output
+					ram[addr] <= lfsr_state;  // Capture LFSR output
+					lfsr_state <= lfsr_out; // Update state
+					addr <= addr + 1;
+
+					if (addr == 5'd31)
+						STAGE <= DONE;
+					else
+						STAGE <= GENERATE;
+				end
+
+				DONE: begin
+					finish <= 1'b1;
+					STAGE <= WAIT;
+					addr <= 5'd0;
+				end
+				default: begin
+					finish <= 1'b0;
+					enable <= 1'b0;
+					STAGE <= WAIT;
+					addr <= 5'd0;
+					lfsr_state <= 16'hBEEF;
+				end
+			endcase
+		end
+	end
+endmodule
+

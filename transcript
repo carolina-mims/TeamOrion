@@ -1,0 +1,128 @@
+# Compile of osequencer.v was successful.
+# Compile of osequencer.v was successful.
+# Compile of lfsr.v was successful.
+# 2 compiles, 0 failed with no errors.
+# Compile of osequencer.v was successful.
+# Compile of lfsr.v was successful.
+# 2 compiles, 0 failed with no errors.
+# Compile of osequencer.v was successful.
+# Compile of lfsr.v was successful.
+# Compile of testbench_Final_Section.v failed with 2 errors.
+# 3 compiles, 1 failed with 2 errors.
+# Compile of osequencer.v was successful.
+# Compile of lfsr.v was successful.
+# Compile of testbench_Final_Section.v was successful.
+# 3 compiles, 0 failed with no errors.
+vsim -gui work.testbench_Final_Section
+# vsim -gui work.testbench_Final_Section 
+# Start time: 22:19:16 on May 07,2025
+# Loading work.testbench_Final_Section
+# Loading work.osequencer
+# Loading work.lfsr
+add wave -position insertpoint sim:/testbench_Final_Section/*
+add wave -r /*
+run
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Compile of osequencer.v was successful.
+# Compile of lfsr.v was successful.
+# Compile of testbench_Final_Section.v was successful.
+# 3 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testbench_Final_Section
+# Loading work.osequencer
+# Loading work.lfsr
+# Compile of osequencer.v was successful.
+# Compile of lfsr.v was successful.
+# Compile of testbench_Final_Section.v was successful.
+# 3 compiles, 0 failed with no errors.
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# Break in Module osequencer at C:/ADD_Demos/Final_section/osequencer.v line 49
+run
+# Break in Module osequencer at C:/ADD_Demos/Final_section/osequencer.v line 49
+# Compile of osequencer.v was successful.
+# Compile of lfsr.v failed with 9 errors.
+# Compile of testbench_Final_Section.v was successful.
+# 3 compiles, 1 failed with 9 errors.
+# Compile of osequencer.v was successful.
+# Compile of lfsr.v was successful.
+# Compile of testbench_Final_Section.v was successful.
+# 3 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testbench_Final_Section
+# Loading work.osequencer
+# Loading work.lfsr
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# Break in Module osequencer at C:/ADD_Demos/Final_section/osequencer.v line 49
+run
+# Break in Module osequencer at C:/ADD_Demos/Final_section/osequencer.v line 49
+run
+# Break in Module osequencer at C:/ADD_Demos/Final_section/osequencer.v line 49
+# Compile of osequencer.v failed with 2 errors.
+# Compile of lfsr.v was successful.
+# Compile of testbench_Final_Section.v was successful.
+# 3 compiles, 1 failed with 2 errors.
+# Compile of osequencer.v failed with 1 errors.
+# Compile of lfsr.v was successful.
+# Compile of testbench_Final_Section.v was successful.
+# 3 compiles, 1 failed with 1 error.
+# Compile of osequencer.v was successful.
+# Compile of lfsr.v was successful.
+# Compile of testbench_Final_Section.v was successful.
+# 3 compiles, 0 failed with no errors.
+# Compile of osequencer.v was successful.
+# Compile of lfsr.v was successful.
+# Compile of testbench_Final_Section.v was successful.
+# 3 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testbench_Final_Section
+# Loading work.osequencer
+# Loading work.lfsr
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+run
+# Compile of osequencer.v was successful.
+# Compile of lfsr.v was successful.
+# Compile of testbench_Final_Section.v was successful.
+# 3 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testbench_Final_Section
+# Loading work.osequencer
+# Loading work.lfsr
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+run
+# Compile of osequencer.v was successful.
+# Compile of lfsr.v was successful.
+# Compile of testbench_Final_Section.v was successful.
+# 3 compiles, 0 failed with no errors.
+# Compile of osequencer.v was successful.
+# Compile of lfsr.v was successful.
+# Compile of testbench_Final_Section.v was successful.
+# 3 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.testbench_Final_Section
+# Loading work.osequencer
+# Loading work.lfsr
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+run
+# End time: 00:03:49 on May 08,2025, Elapsed time: 1:44:33
+# Errors: 0, Warnings: 1
