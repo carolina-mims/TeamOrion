@@ -1,12 +1,10 @@
-//ECE 5440: Advance Digital Design
-//Michael Iheagwara 8627
-//This module is used for the authentication process that is required to start the Binary game.
+
 module PassController(Game_Enter,User_digit,Matched_ID,Internal_ID,clk,rst,LogIn, LogOut, GMLogOut, Guest);
     input Game_Enter,clk,rst, Matched_ID,GMLogOut, Guest;
     input [3:0] User_digit;
     input [4:0] Internal_ID;
-    output LogIn,LogOut;
-    reg LogIn,LogOut;
+    output LogIn, LogOut;
+    reg LogIn, LogOut;
     parameter DIGITCHECK = 0, FETCHROM = 1,ROMCYC1=2, ROMCYC2=3, CATCHROM =4, COMPARE =5, PASSED = 6, WAIT =7;
     reg [5:0] State;
     reg [15:0] ROMPass;
@@ -32,7 +30,7 @@ module PassController(Game_Enter,User_digit,Matched_ID,Internal_ID,clk,rst,LogIn
 				    LogIn <= 1'b0;
 				    LogOut <= 1'b0; // keep low until correct password
 		    	    addrCnt <= 2'b00;
-					DigitCnt <=2'b00;
+					 DigitCnt <=2'b00;
 				    UserPass <= 16'b00;
 				    ROMPass <= 16'b00;
 		    	    Pass_Attempt <= 2'b00;
@@ -41,7 +39,7 @@ module PassController(Game_Enter,User_digit,Matched_ID,Internal_ID,clk,rst,LogIn
 						LogOut <= 1'b0;
 						end
 				    else begin
-						if (Matched_ID == 1'b1) begin // if USERID Sends a 1 start the password check
+						if (Matched_ID == 1'b1) begin // User entered the correct user ID now initialize the password check: if USERID Sends a 1 start the password check
 							LogOut <= 1'b0;
 							State <= DIGITCHECK;
 							end
@@ -95,8 +93,8 @@ module PassController(Game_Enter,User_digit,Matched_ID,Internal_ID,clk,rst,LogIn
 					State <= PASSED; //moved to Passed State
 					end
 				     else begin
-					Pass_Attempt <= Pass_Attempt +1;
-					if( Pass_Attempt == 2'b11) begin
+					Pass_Attempt <= Pass_Attempt +1; //conut number of password attempts
+					if( Pass_Attempt == 2'b11) begin //after three failed attempts->logout: must re-enter userID
 					    State<=WAIT;
 					    LogOut <=1'b1;
 					    end
@@ -123,6 +121,10 @@ module PassController(Game_Enter,User_digit,Matched_ID,Internal_ID,clk,rst,LogIn
 				     DigitCnt <= 2'b00;
 				     UserPass <= 16'b00;
 				     State <= DIGITCHECK;
+				     ROMPass <= 16'd0;
+				     UserPass <= 16'd0;
+				     Pass_Attempt<= 2'b00;
+				     addr <= 5'b00000;
 				end
 			endcase
 		end
@@ -132,4 +134,3 @@ module PassController(Game_Enter,User_digit,Matched_ID,Internal_ID,clk,rst,LogIn
 
 
 endmodule
-
