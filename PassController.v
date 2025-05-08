@@ -29,25 +29,26 @@ module PassController(Game_Enter,User_digit,Matched_ID,Internal_ID,clk,rst,LogIn
 		else begin
 			case(State)
 				WAIT: begin
+				    LogIn <= 1'b0;
+				    LogOut <= 1'b0; // keep low until correct password
+		    	    addrCnt <= 2'b00;
+					DigitCnt <=2'b00;
+				    UserPass <= 16'b00;
+				    ROMPass <= 16'b00;
+		    	    Pass_Attempt <= 2'b00;
 				    if (Guest == 1'b1) begin
-					State <= PASSED;
-					end
-				     else begin
-					if (Matched_ID == 1'b1) begin // if USERID Sends a 1 start the password check
-					    LogOut <= 1'b0;
-					    State <= DIGITCHECK;
-					    end
-				    	else begin
-				    	    LogIn <= 1'b0;
-				    	    LogOut <= 1'b1; // keep low until correct password
-				    	    addrCnt <= 2'b00;
-				    	    DigitCnt <=2'b00;
-				    	    UserPass <= 16'b00;
-				    	    ROMPass <= 16'b00;
-				    	    Pass_Attempt <= 2'b00;
-					    State <= WAIT; // else continue waiting
-					    end
-					end
+						State <= PASSED;
+						LogOut <= 1'b0;
+						end
+				    else begin
+						if (Matched_ID == 1'b1) begin // if USERID Sends a 1 start the password check
+							LogOut <= 1'b0;
+							State <= DIGITCHECK;
+							end
+						else begin
+							State <= WAIT; // else continue waiting
+							end
+						end
 				end
 				DIGITCHECK: begin
 
@@ -107,11 +108,12 @@ module PassController(Game_Enter,User_digit,Matched_ID,Internal_ID,clk,rst,LogIn
 				PASSED: begin
 				    if(GMLogOut == 1'b1)begin // SIGNAL FROM GAME CONTROLLER TO LET THE MU AUTH TO LOG OUT
 					LogIn<= 1'b0;
+					LogOut <= 1'b1;
 					State<=WAIT;
 					end
 				    else begin
-					LogIn <= 1'b1; // set login high 
-					State <= PASSED;
+						LogIn <= 1'b1; // set login high 
+						State <= PASSED;
 					end
 				end
 				default: begin
@@ -130,3 +132,4 @@ module PassController(Game_Enter,User_digit,Matched_ID,Internal_ID,clk,rst,LogIn
 
 
 endmodule
+
