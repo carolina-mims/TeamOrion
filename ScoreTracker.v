@@ -23,7 +23,7 @@ module ScoreTracker(ScoreReq, PlayerID, Score, Clk, Rst, PersonalWin, GlobalWinn
       if(Rst == 1'b0) begin
         //Finish defining all registers and copy to default case
         PersonalWin <= 1'b0;
-        GlobalWinner <= 1'b1;
+        GlobalWinner <= 1'b0;
         State <= InitRAM;
         CurrHighscore <= 5'b00000;
         GlobalHighscore <= 5'b00000;

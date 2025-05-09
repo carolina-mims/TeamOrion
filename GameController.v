@@ -15,7 +15,7 @@ module GameController(Passed, LoadPlayerIn, GameStartButton, Clk, Rst, TimerReco
     reg [4:0] SeqAddr;
 
     parameter WaitForAuth = 0, ChooseDiff = 1, ResetTimer = 2, WaitGameStart = 3, DispFetch = 4, DispCyc1 = 5, DispCyc2 = 6, DispCatch = 7, DispLED = 8, Wait2Sec = 9, DispDecide = 10, WaitPlayerStart = 11,
-    PlayCheckButton = 12, PlayFetch = 13, PlayCyc1 = 14, PlayCyc2 = 15, PlayCatch = 16, PlayCompare = 17, PlayDecide = 18, PlayVerify = 19, GameOver = 20, WaitGenFin = 21;
+    PlayCheckButton = 12, PlayFetch = 13, PlayCyc1 = 14, PlayCyc2 = 15, PlayCatch = 16, PlayCompare = 17, PlayDecide = 18, PlayVerify = 19, GameOver = 20;
 
     reg [4:0] State;
 
@@ -29,8 +29,8 @@ module GameController(Passed, LoadPlayerIn, GameStartButton, Clk, Rst, TimerReco
     output PersonalWin, GlobalWinner;
     reg ScoreReq;
     reg [1:0] PIDToScore;
-    reg PersonalWin;
-    reg GlobalWinner;
+    wire PersonalWin;
+    wire GlobalWinner;
     //INSERT RAM stuff HERE, also make logout signal
     ScoreTracker ScoreTracker1(ScoreReq, PIDToScore, Stage, Clk, Rst, PersonalWin, GlobalWinner);
 
@@ -51,8 +51,6 @@ module GameController(Passed, LoadPlayerIn, GameStartButton, Clk, Rst, TimerReco
         Verified <= 1'b1;
         ScoreReq <= 1'b0;
         PIDToScore <= 2'b00;
-        PersonalWin <= 1'b0;
-        GlobalWinner <= 1'b0;
        end
       else
         begin
@@ -108,19 +106,10 @@ module GameController(Passed, LoadPlayerIn, GameStartButton, Clk, Rst, TimerReco
                 GoGen <= 1'b1;
                 State <= WaitGameStart;
                end
-              WaitGenFin: begin
+              WaitGameStart: begin
                 TimerReconfig <= 1'b0;
                 GoGen <= 1'b0;
-                  if(FinGen == 1'b1) begin
-                      State <= WaitGameStart;
-                  end
-                  else
-                    begin
-                      State <= WaitGenFin;
-                    end
-                end
-              WaitGameStart: begin
-                if(GameStartButton == 1'b1) begin
+                if(GameStartButton == 1'b1 && FinGen == 1'b1) begin
                   State <= DispFetch;
                  end
                 else
@@ -315,8 +304,6 @@ module GameController(Passed, LoadPlayerIn, GameStartButton, Clk, Rst, TimerReco
                Verified <= 1'b1;
                ScoreReq <= 1'b0;
                PIDToScore <= 2'b00;
-               PersonalWin <= 1'b0;
-               GlobalWinner <= 1'b0;
               end            
             endcase
           end
