@@ -38,6 +38,9 @@ wire [3:0] DispDigit;
 wire [4:0] SeqAddr;
 wire [3:0] RAMOutput;
   wire [1:0] Diff;
+  wire [4:0] addr;
+  wire [3:0] lfsr_data_out;
+  wire enable;
 //button shapers
 
   buttonShaper passwdBS(passwd_start_Bin, passwd_start_Bout, clk, rst);  
@@ -55,9 +58,9 @@ wire [3:0] RAMOutput;
 //the RAMOutput, SeqAddr to RAM
   
 // INSERT Sequencer
-  osequencer digitSequencer(GoGen, clk, rst, FinGen);
+  osequencer digitSequencer(GoGen, clk, rst, FinGen, addr, lfsr_data_out, enable );
 
-
+  RAM_Final My_RAM(addr, SeqAddr, clk, lfsr_data_out, 4'd0,enable, 1'b0, q_b, RAMOutput);
 
 
 //instantiate twoDigitTimer
