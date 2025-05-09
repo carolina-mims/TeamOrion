@@ -41,6 +41,7 @@ wire [3:0] RAMOutput;
   wire [4:0] addr;
   wire [3:0] lfsr_data_out;
   wire enable;
+  wire [3:0] q_b;
 //button shapers
 
   buttonShaper passwdBS(passwd_start_Bin, passwd_start_Bout, clk, rst);  
