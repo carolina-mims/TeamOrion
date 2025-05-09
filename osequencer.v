@@ -2,7 +2,10 @@ module osequencer(
     input start,
     input clk,
     input rst,
-    output reg finish
+    output reg finish,
+    output [4:0] addr,
+    output [3:0] lfsr_data_out,
+    output enable,	
 );
 	reg [4:0] addr = 5'd0;
 	reg [15:0] lfsr_state = 16'hBEEF;
@@ -19,7 +22,7 @@ module osequencer(
 
 	// Instantiate our LFSR module for RNG
 	lfsr my_lfsr (lfsr_state, lfsr_out, enable, clk, rst);
-	RAM_Final My_RAM(addr, 5'd0, clk, lfsr_data_out, 4'd0,enable, 1'b0, q_b, q_a);
+	//RAM_Final My_RAM(addr, 5'd0, clk, lfsr_data_out, 4'd0,enable, 1'b0, q_b, q_a);
 	//module RAM_Final (address_a, address_b, clock, data_a, data_b, wren_a, wren_b, q_a, q_b);
 
 	always @(posedge clk) begin
