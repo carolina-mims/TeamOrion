@@ -13,9 +13,9 @@ module osequencer(
 	wire [15:0] lfsr_out;
 	reg enable = 1'b0;
 	reg [1:0] STAGE;
-	wire [3:0] q_b;
-	wire [3:0] q_a;
-
+	//wire [3:0] q_b;
+	//wire [3:0] q_a;
+        reg signal;
 	parameter WAIT = 2'd0, GENERATE = 2'd1, WRITE = 2'd2, DONE = 2'd3;
 
 	reg [15:0] ram [0:31]; // Internal RAM to storing
@@ -41,6 +41,7 @@ module osequencer(
 					if (start) begin
 						STAGE <= GENERATE;
 						enable <= 1'b1;
+						lfsr_data_out <= lfsr_state[3:0];
 					end 
 					else begin
 						enable <= 1'b0;
@@ -50,15 +51,30 @@ module osequencer(
 				GENERATE: begin
 					enable <= 1'b1;          // Let LFSR generate a new value
 					STAGE <= WRITE;          // Go to write on next cycle
+					//Singal
+					if(signal == 1'b1) begin
+						lfsr_data_out <= lfsr_state[7:4];
+						signal = 1'b0;
+					end
+					else begin
+						lfsr_data_out <= lfsr_state[3:0];
+						signal = 1'b1;
+					end
 				end
 
 				WRITE: begin
-					//enable <= 1'b0;         // Turn off LFSR to freeze output
+					enable <= 1'b0;         // Turn off LFSR to freeze output
 					ram[addr] <= lfsr_state;  // Capture LFSR output
 					lfsr_state <= lfsr_out; // Update state
 					addr <= addr + 1;
-					lfsr_data_out <= lfsr_state[3:0];
-
+					if(signal == 1'b1) begin
+						lfsr_data_out <= lfsr_state[7:4];
+						signal = 1'b0;
+					end
+					else begin
+						lfsr_data_out <= lfsr_state[3:0];
+						signal = 1'b1;
+					end
 					if (addr == 5'd31)
 						STAGE <= DONE;
 					else
@@ -82,4 +98,3 @@ module osequencer(
 		end
 	end
 endmodule
-
