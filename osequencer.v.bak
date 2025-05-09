@@ -38,6 +38,7 @@ module osequencer(
 					if (start) begin
 						STAGE <= GENERATE;
 						enable <= 1'b1;
+						lfsr_data_out <= lfsr_state[3:0];
 					end 
 					else begin
 						enable <= 1'b0;
@@ -47,6 +48,7 @@ module osequencer(
 				GENERATE: begin
 					enable <= 1'b1;          // Let LFSR generate a new value
 					STAGE <= WRITE;          // Go to write on next cycle
+					lfsr_data_out <= lfsr_state[7:4];
 				end
 
 				WRITE: begin
@@ -55,6 +57,7 @@ module osequencer(
 					lfsr_state <= lfsr_out; // Update state
 					addr <= addr + 1;
 					lfsr_data_out <= lfsr_state[3:0];
+
 					if (addr == 5'd31)
 						STAGE <= DONE;
 					else
