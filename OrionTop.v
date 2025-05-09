@@ -55,7 +55,7 @@ wire [3:0] RAMOutput;
  TwoSecondTimer twoSecTimer (clk, rst, TwoSecEnable, pulse_out_1ms, pulse_out_100ms, pulse_out_2s);
   
 //INSERT gamecontroller
-  GameController gameControl(LogIn, LoadPlayer_bout, passwd_start_Bout, clk, rst, timerReconfig, timerEnable , timeout, GoGen, FinGen, SeqAddr, Diff, userInput, RAMOutput, DispDigit, TwoSecEnable, pulse_out_2s, InternalID, PersonalWin, GlobalWinner, GCLogout);
+  GameController gameControl(LogIn, LoadPlayer_bout, passwd_start_Bout, clk, rst, timerReconfig, timerEnable , timeout, GoGen, FinGen, SeqAddr, Diff, userInput, RAMOutput, DispDigit, TwoSecEnable, pulse_out_2s, InternalID, PersonalWin, GlobalWin, GCLogout);
 //the RAMOutput, SeqAddr to RAM
   
 // INSERT Sequencer
