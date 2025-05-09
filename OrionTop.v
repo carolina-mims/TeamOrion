@@ -3,13 +3,13 @@
 // Description: top level module that connects all other modules
 
 
-module OrionTop(userInput, passwd_start_Bin, LoadPlayer_Bin, rst, clk, tensDisplay, onesDisplay, playerDisplay, randnumDisplay, LogIn, LogOut, PersonalWin, GlobalWin); 
+module OrionTop(userInput, passwd_start_Bin, LoadPlayer_Bin, rst, clk, tensDisplay, onesDisplay, randnumDisplay, LogIn, LogOut, PersonalWin, GlobalWin); 
 
 
   input [3:0] userInput;
   input  passwd_start_Bin, LoadPlayer_Bin;
   input clk, rst;
-  output [6:0] playerDisplay, randnumDisplay, tensDisplay, onesDisplay;
+  output [6:0] randnumDisplay, tensDisplay, onesDisplay;
 // LED lights output 
   output LogIn, LogOut;
   output PersonalWin, GlobalWin;
@@ -33,7 +33,7 @@ wire LoadPlayer_Bout;
 
 
 //wires gameController
-wire GoGen, FinGen, TwoSecEnable, PersonalWin, GlobalWinner;
+wire GoGen, FinGen, TwoSecEnable;
 wire [3:0] DispDigit;
 wire [4:0] SeqAddr;
 wire [3:0] RAMOutput;
