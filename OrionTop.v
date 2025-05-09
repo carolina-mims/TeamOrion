@@ -63,8 +63,6 @@ wire [3:0] RAMOutput;
 //instantiate twoDigitTimer
   twoDigitTimer DigitsTimer (tensDigit, onesDigit, timeout, timerReconfig, timerEnable,Diff,clk,rst); //make sure Diff is for the gameLevel 
 
-// INSERT PLAYER'S Displays 
- // decoder_4to7 playerDisp ( *INSERT SIGNAL FROM GAME CONTROLLER* , playerDisplay);
  
 
 //INSERT RANDOM # Display
