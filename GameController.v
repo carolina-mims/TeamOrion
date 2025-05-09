@@ -90,6 +90,7 @@ module GameController(Passed, LoadPlayerIn, GameStartButton, Clk, Rst, TimerReco
                       Diff <= 2'b01;
                      end
                   endcase
+                  GoGen <= 1'b1;
                   State <= ResetTimer;
                  end
                 else if(LoadPlayerIn == 1'b1) begin
@@ -103,7 +104,6 @@ module GameController(Passed, LoadPlayerIn, GameStartButton, Clk, Rst, TimerReco
                end
               ResetTimer: begin
                 TimerReconfig <= 1'b1;
-                GoGen <= 1'b1;
                 State <= WaitGenFin;
                end
               WaitGenFin: begin
@@ -269,19 +269,22 @@ module GameController(Passed, LoadPlayerIn, GameStartButton, Clk, Rst, TimerReco
             GameOver: begin
               //TimerEnable <= 1'b0;
               //Add score stuff here
-              ScoreReq <= 1'b1;
               case(PlayerID)
                 5'b00000: begin
                 PIDToScore <= 2'b00;
+                ScoreReq <= 1'b1;
                 end
                 5'b00100: begin
                 PIDToScore <= 2'b01;
+                ScoreReq <= 1'b1;
                 end
                 5'b01000: begin
                 PIDToScore <= 2'b10;
+                ScoreReq <= 1'b1;
                 end
                 5'b01100: begin
                 PIDToScore <= 2'b11;
+                ScoreReq <= 1'b1;
                 end
                 5'b10000: begin
                 ScoreReq <= 1'b0;
