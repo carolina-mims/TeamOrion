@@ -53,7 +53,7 @@ module osequencer(
 				end
 
 				WRITE: begin
-					enable <= 1'b0;         // Turn off LFSR to freeze output
+					//enable <= 1'b0;         // Turn off LFSR to freeze output
 					ram[addr] <= lfsr_state;  // Capture LFSR output
 					lfsr_state <= lfsr_out; // Update state
 					addr <= addr + 1;
