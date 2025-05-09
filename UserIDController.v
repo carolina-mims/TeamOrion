@@ -36,6 +36,8 @@ module UserIDController(Game_Enter,User_digit,MatchedID,InternalID,clk,rst, LogO
 		else begin
 			case(State)
 				DIGITCHECK: begin
+				    addrCnt <= 2'b00;
+		     		    addr <= 5'd0;
 				    if(Game_Enter==1'b1) begin //yes?
 					    UserID <= (UserID << 4) | User_digit; // shifts UserID by 4 then changes [3:0] from 0000 to UserDigit to the end
 						if (DigitCnt == 2'd3) begin
