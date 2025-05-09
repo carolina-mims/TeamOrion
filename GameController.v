@@ -15,7 +15,7 @@ module GameController(Passed, LoadPlayerIn, GameStartButton, Clk, Rst, TimerReco
     reg [4:0] SeqAddr;
 
     parameter WaitForAuth = 0, ChooseDiff = 1, ResetTimer = 2, WaitGameStart = 3, DispFetch = 4, DispCyc1 = 5, DispCyc2 = 6, DispCatch = 7, DispLED = 8, Wait2Sec = 9, DispDecide = 10, WaitPlayerStart = 11,
-    PlayCheckButton = 12, PlayFetch = 13, PlayCyc1 = 14, PlayCyc2 = 15, PlayCatch = 16, PlayCompare = 17, PlayDecide = 18, PlayVerify = 19, GameOver = 20;
+    PlayCheckButton = 12, PlayFetch = 13, PlayCyc1 = 14, PlayCyc2 = 15, PlayCatch = 16, PlayCompare = 17, PlayDecide = 18, PlayVerify = 19, GameOver = 20, WaitGenFin = 21;
 
     reg [4:0] State;
 
@@ -104,12 +104,21 @@ module GameController(Passed, LoadPlayerIn, GameStartButton, Clk, Rst, TimerReco
               ResetTimer: begin
                 TimerReconfig <= 1'b1;
                 GoGen <= 1'b1;
-                State <= WaitGameStart;
+                State <= WaitGenFin;
                end
-              WaitGameStart: begin
+              WaitGenFin: begin
                 TimerReconfig <= 1'b0;
                 GoGen <= 1'b0;
-                if(GameStartButton == 1'b1 && FinGen == 1'b1) begin
+                if(FinGen == 1'b1) begin
+                  State <= WaitGameStart;
+                 end
+                else
+                  begin
+                    State <= WaitGenFin;
+                  end
+                end
+              WaitGameStart: begin
+                if(GameStartButton == 1'b1) begin
                   State <= DispFetch;
                  end
                 else
