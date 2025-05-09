@@ -91,7 +91,7 @@ module GameController(Passed, LoadPlayerIn, GameStartButton, Clk, Rst, TimerReco
                      end
                   endcase
                   GoGen <= 1'b1;
-                  State <= ResetTimer;
+                  State <= WaitGenFin;
                  end
                 else if(LoadPlayerIn == 1'b1) begin
                   Logout <= 1'b1;
@@ -102,22 +102,22 @@ module GameController(Passed, LoadPlayerIn, GameStartButton, Clk, Rst, TimerReco
                     State <= ChooseDiff;
                   end
                end
-              ResetTimer: begin
-                TimerReconfig <= 1'b1;
-                State <= WaitGenFin;
-               end
               WaitGenFin: begin
-                TimerReconfig <= 1'b0;
                 GoGen <= 1'b0;
                 if(FinGen == 1'b1) begin
-                  State <= WaitGameStart;
+                  State <= ResetTimer;
                  end
                 else
                   begin
                     State <= WaitGenFin;
                   end
                 end
+              ResetTimer: begin
+                TimerReconfig <= 1'b1;
+                State <= WaitGameStart;
+               end
               WaitGameStart: begin
+                TimerReconfig <= 1'b0;
                 if(GameStartButton == 1'b1) begin
                   State <= DispFetch;
                  end
